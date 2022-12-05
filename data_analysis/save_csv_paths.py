@@ -17,7 +17,7 @@ def main(args=None):
     assert exists(parser.folder_class_dict_file), "folder_class_dict_file does not exist"
 
     f = open(parser.folder_class_dict_file)
-    folder_class_dict = f.readlines()
+    folder_class_dict = f.read().split('\n')
     f.close()
 
     folders = []
