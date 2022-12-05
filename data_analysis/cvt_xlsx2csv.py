@@ -28,6 +28,7 @@ def main(args=None):
         dst_file_path = join(parser.records_dst_path,filename+".csv")
 
         XlsxToCSV(xlsx_file,dst_file_path)
+    print()
         
 if "__main__"==__name__:
     main()

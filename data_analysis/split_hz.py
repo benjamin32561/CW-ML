@@ -34,6 +34,7 @@ def main(args=None):
         elif freq==400:
             new_file_path = join(fh_hz_folder_path,full_filename)
         rename(file_path,new_file_path)
+    print()
         
 if "__main__"==__name__:
     main()
