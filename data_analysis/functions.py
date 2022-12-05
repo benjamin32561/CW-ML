@@ -56,7 +56,10 @@ def XlsxToCSV(xlsx_path:str,csv_path:str):
     read_file.to_csv(csv_path)
 
 def GetDataFrame(csv_path:str):
-    data = pd.read_csv(csv_path)
+    if csv_path[-3:]=='csv':
+        data = pd.read_csv(csv_path)
+    else:
+        data = pd.read_excel(csv_path)
     current_cols = data.columns
 
     cols_to_drop = []

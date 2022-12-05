@@ -3,7 +3,7 @@ import glob
 from os.path import join, exists
 from functions import GetDataFrame, PlotRecordData
 
-#python plot_records.py --records_path "C:\\Users\\ben32\\Desktop\\Work\\csv_data\\accidents\\200hz"
+#python plot_records.py --records_path "C:\\Users\\ben32\\Desktop\\work\\xlsx_data\\accidents"
 
 def main(args=None):
     parser = argparse.ArgumentParser(description='Script for plotting all records in folder.')
@@ -15,6 +15,8 @@ def main(args=None):
     assert exists(parser.records_path), "records_path does not exist"
 
     files = glob.glob(join(parser.records_path,"*.csv"))
+    if len(files)==0:
+        files = glob.glob(join(parser.records_path,"*.xlsx"))
     n_files = len(files)
     for idx, file_path in enumerate(files):
         print("{}/{}: {}".format(idx+1,n_files,file_path))
