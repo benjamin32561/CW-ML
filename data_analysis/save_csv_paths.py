@@ -24,7 +24,7 @@ def main(args=None):
     clas = []
     for idx in range(len(folder_class_dict)):
         line = folder_class_dict[idx]
-        folder, current_folder_class = line.split('\t')
+        folder, current_folder_class = line.split(' ')
         folders.append(folder)
         clas.append(current_folder_class)
 
