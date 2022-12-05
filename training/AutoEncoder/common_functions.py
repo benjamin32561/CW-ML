@@ -10,7 +10,7 @@ class AEAcceleratorDataset(Dataset):
         Args:
             csv_file_list (string): Paths to .txt which contains all recordings paths.
         """
-        self.csv_file_list = open(csv_file_list,'r').read().split('\n')[:10]
+        self.csv_file_list = open(csv_file_list,'r').read().split('\n')
         self.n_files = len(self.csv_file_list)
 
     def __len__(self):
