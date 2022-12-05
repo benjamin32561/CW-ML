@@ -1,0 +1,4 @@
+C:/Users/ben32/Desktop/work/csv_data/accidents/200hz    1
+C:/Users/ben32/Desktop/work/csv_data/accidents/400hz    1
+C:/Users/ben32/Desktop/work/csv_data/not_accidents/200hz    0
+C:/Users/ben32/Desktop/work/csv_data/not_accidents/400hz    0
