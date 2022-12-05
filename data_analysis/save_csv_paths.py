@@ -3,7 +3,7 @@ from random import shuffle
 from os.path import exists
 from functions import SaveLinesToTxt, GetAllCSVInFolders
 
-#python save_csv_paths.py --folder_class_dict_file C:/Users/ben32/Desktop/work/training/csv_locations.txt --txt_file_location C:\Users\ben32\Desktop\work\data_analysis\folder_class_dict.txt
+#python save_csv_paths.py --folder_class_dict_file C:/Users/ben32/Desktop/work/training/csv_locations.txt --txt_file_location C:\Users\ben32\Desktop\work\data_analysis\record_class.txt
 
 def main(args=None):
     parser = argparse.ArgumentParser(description='Script for saving all .csv file locations and their class.')

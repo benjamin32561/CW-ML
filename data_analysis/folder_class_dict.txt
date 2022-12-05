@@ -1,4 +1,4 @@
-/content/xlsx_data/accidents/200hz    1
-/content/xlsx_data/accidents/400hz    1
-/content/xlsx_data/not_accidents/200hz    0
-/content/xlsx_data/not_accidents/400hz    0
+/content/xlsx_data/accidents/200hz  1
+/content/xlsx_data/accidents/400hz  1
+/content/xlsx_data/not_accidents/200hz  0
+/content/xlsx_data/not_accidents/400hz  0
