@@ -1,5 +1,5 @@
-TRAIN_TXT_PATH = "../train_csv_locations.txt"
-TEST_TXT_PATH = "../test_csv_locations.txt"
+TRAIN_TXT_PATH = "../train_record_class.txt"
+TEST_TXT_PATH = "../test_record_class.txt"
 TIME_COL = "Time (sec)"
 
 MODELS_PATH = "/content/drive/MyDrive/Work/training/AutoEncoder"
