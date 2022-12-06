@@ -1,7 +1,7 @@
 import argparse
 from random import shuffle
 from os.path import exists
-from functions import SaveLinesToTxt, GetAllCSVInFolders
+from functions import SaveLinesToTxt, GetAllXlsxInFolders
 
 #python save_xlsx_paths.py --folder_class_dict_file C:/Users/ben32/Desktop/work/training/xlsx_locations.txt --txt_file_location C:\Users\ben32\Desktop\work\data_analysis\record_class.txt
 

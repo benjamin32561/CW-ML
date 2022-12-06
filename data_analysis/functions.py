@@ -54,6 +54,7 @@ def CalcFrequency(df:pd.DataFrame()):
 def GetDataFrame(xlsx_path:str):
     data = pd.read_excel(xlsx_path)
 
+    current_cols = data.columns
     cols_to_drop = []
     for col in current_cols:
         if col not in XLSX_RELEVENT_COLUMNS:
