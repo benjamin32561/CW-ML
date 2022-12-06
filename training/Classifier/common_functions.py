@@ -26,7 +26,7 @@ class ClassifierAcceleratorDataset(Dataset):
     def __getitem__(self, idx, as_df=False):
         path, record_class = self.files[idx].split('\t')
         class_to_ret = np.array([float(record_class)])
-        df = GetCSVData(path)
+        df = GetDataFrame(path)
         if as_df:
             return df,class_to_ret
         return df.to_numpy()[:,:-1],class_to_ret
