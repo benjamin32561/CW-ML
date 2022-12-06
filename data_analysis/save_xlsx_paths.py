@@ -28,7 +28,7 @@ def main(args=None):
         folders.append(folder)
         clas.append(current_folder_class)
 
-    locs = GetAllCSVInFolders(folders,clas)
+    locs = GetAllXlsxInFolders(folders,clas)
     shuffle(locs)
     SaveLinesToTxt(locs, parser.txt_file_location)
 
