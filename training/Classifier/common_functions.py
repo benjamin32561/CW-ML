@@ -7,6 +7,7 @@ from data_analysis.functions import GetDataFrame, PlotRecordData, CreatePath
 import sys
 import os
 sys.path.append(os.path.abspath('/content/Cloud-Wise-ML/'))
+import numpy as np
 from torch.utils.data import Dataset
 from data_analysis.functions import GetDataFrame, PlotRecordData, CreatePath
 
