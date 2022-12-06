@@ -35,13 +35,13 @@ def CreatePath(path=str):
     if not exists(path):
         makedirs(path)
 
-def GetAllCSVInFolders(folders,folders_class):
-    all_csv_with_class = []
+def GetAllXlsxInFolders(folders,folders_class):
+    all_xlsx_with_class = []
     for idx, folder in enumerate(folders):
-        csv_in_folder = glob(join(folder,'*.csv'))
-        lines = [csv_loc+'\t'+folders_class[idx] for csv_loc in csv_in_folder]
-        all_csv_with_class.extend(lines)
-    return all_csv_with_class
+        xlsx_in_folder = glob(join(folder,'*.xlsx'))
+        lines = [xlsx_loc+'\t'+folders_class[idx] for xlsx_loc in xlsx_in_folder]
+        all_xlsx_with_class.extend(lines)
+    return all_xlsx_with_class
 
 def SaveLinesToTxt(lines,txt_filename='lines.txt'):
     to_write = '\n'.join(lines)
@@ -51,16 +51,8 @@ def SaveLinesToTxt(lines,txt_filename='lines.txt'):
 def CalcFrequency(df:pd.DataFrame()):
     return (df.shape[0]-1)/df.iloc[-1][-1]
 
-def XlsxToCSV(xlsx_path:str,csv_path:str):
-    read_file = pd.read_excel (xlsx_path)
-    read_file.to_csv(csv_path)
-
-def GetDataFrame(csv_path:str):
-    if csv_path[-3:]=='csv':
-        data = pd.read_csv(csv_path)
-    else:
-        data = pd.read_excel(csv_path)
-    current_cols = data.columns
+def GetDataFrame(xlsx_path:str):
+    data = pd.read_xlsx(xlsx_path)
 
     cols_to_drop = []
     for col in current_cols:

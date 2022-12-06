@@ -12,12 +12,8 @@ from torch.utils.data import Dataset
 from data_analysis.functions import GetDataFrame, PlotRecordData, CreatePath
 
 class ClassifierAcceleratorDataset(Dataset):
-    def __init__(self, csv_files):
-        """
-        Args:
-            csv_file (string): Paths to .txt which contains all recordings paths.
-        """
-        self.files = open(csv_files,'r').read().split('\n')
+    def __init__(self, file_list):
+        self.files = open(file_list,'r').read().split('\n')
         self.n_files = len(self.files)
 
     def __len__(self):

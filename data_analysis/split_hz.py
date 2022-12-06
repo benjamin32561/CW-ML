@@ -9,7 +9,7 @@ from functions import GetDataFrame, CalcFrequency, CreatePath
 def main(args=None):
     parser = argparse.ArgumentParser(description='Simple script for splitting all recird in folder to 200hz and 400hz folders.')
 
-    parser.add_argument('--records_path', help='Path to recordings folder (contains .csv records)')
+    parser.add_argument('--records_path', help='Path to recordings folder (contains .xlsx records)')
     parser = parser.parse_args(args)
 
     assert parser.records_path!=None, "records_path can't be None"
@@ -21,7 +21,7 @@ def main(args=None):
     CreatePath(th_hz_folder_path)
     CreatePath(fh_hz_folder_path)
 
-    files = glob.glob(join(parser.records_path,"*.csv"))
+    files = glob.glob(join(parser.records_path,"*.xlsx"))
     n_files = len(files)
     for idx, file_path in enumerate(files):
         print("",end="\rTransfering files: {}/{}".format(idx+1,n_files))
