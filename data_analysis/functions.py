@@ -52,7 +52,7 @@ def CalcFrequency(df:pd.DataFrame()):
     return (df.shape[0]-1)/df.iloc[-1][-1]
 
 def GetDataFrame(xlsx_path:str):
-    data = pd.read_xlsx(xlsx_path)
+    data = pd.read_excel(xlsx_path)
 
     cols_to_drop = []
     for col in current_cols:
