@@ -16,7 +16,7 @@ namespace Server_Usage
 
             AccidentClassifier model = new AccidentClassifier(modelFilePath);
 
-            float[,] test = new float[677, 3];
+            float[,] test = new float[600, 3];
             Console.WriteLine(model.MakePrediction(test));
             Console.WriteLine(model.AccidentOrNot(test));
         }
