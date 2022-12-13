@@ -24,9 +24,9 @@ namespace Server_Usage
         */
         public AccidentClassifier(string model_path, float threshold = 0.5f)
         {
-            this.session = new InferenceSession(model_path);
+            this.session = new InferenceSession(model_path); //openning onnx session
             this.threshold = threshold;
-            int[] input_dimensons = this.session.InputMetadata["modelInput"].Dimensions;
+            int[] input_dimensons = this.session.InputMetadata["modelInput"].Dimensions; //getting model input expectation
             this.input_rows = input_dimensons[1];
             this.input_cols = input_dimensons[2];
         }
@@ -40,8 +40,10 @@ namespace Server_Usage
         */
         private DenseTensor<float> ArrayToDenseTensor(float[,] recording)
         {
+            //creating empty DenseTensor object
             DenseTensor<float> to_ret = new DenseTensor<float>(new[] { 1, this.input_rows, this.input_cols});
-            for(int i = 0; i<recording.GetLength(0);i++)
+            //copying array data to DenseTensor
+            for (int i = 0; i<recording.GetLength(0);i++)
             {
                 for (int j = 0; j < recording.GetLength(1); j++)
                 {
