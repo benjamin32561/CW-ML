@@ -20,7 +20,7 @@ class AccidentLocationClassifierAcceleratorDataset(Dataset):
 
     def __getitem__(self, idx, as_df=False):
         path, record_class = self.files[idx].split('\t')
-        class_to_ret = np.array([int(record_class)])
+        class_to_ret = np.array([int(record_class)-1])
         one_hot_enc_to_ret = one_hot(tensor(class_to_ret),num_classes=self.nc).to(float32)
         df = GetDataFrame(path)
         if as_df:

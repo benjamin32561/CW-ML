@@ -21,7 +21,7 @@ def main(args=None):
 
     new_division = AREA_DIVISION[parser.new_type]
     
-    f = open(org_type_txt_path)
+    f = open(parser.org_type_txt_path)
     data = f.read()
     f.close()
 
@@ -31,7 +31,7 @@ def main(args=None):
         f_path, class_type = line.split('\t')
         new_class_type = new_division[class_type]
         new_lines.append(f_path+'\t'+new_class_type)
-    f = open(org_type_txt_path,'w')
+    f = open(parser.org_type_txt_path,'w')
     f.write('\n'.join(new_lines))
     f.close()
         
