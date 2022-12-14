@@ -23,6 +23,7 @@ class AccidentLocationClassifierAcceleratorDataset(Dataset):
         class_to_ret = np.array([int(record_class)-1])
         one_hot_enc_to_ret = one_hot(tensor(class_to_ret),num_classes=self.nc).to(float32)
         df = GetDataFrame(path)
+        print(one_hot_enc_to_ret.size())
         if as_df:
             return df,one_hot_enc_to_ret
         return df.to_numpy()[:,:-1],one_hot_enc_to_ret
