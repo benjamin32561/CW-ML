@@ -19,21 +19,22 @@ def main(args=None):
     assert parser.org_type_txt_path!=None, "org_type_txt_path can't be None"
     assert exists(parser.org_type_txt_path), "org_type_txt_path does not exist"
 
-    new_division = AREA_DIVISION[parser.new_type]
-    
-    f = open(parser.org_type_txt_path)
-    data = f.read()
-    f.close()
+    if parser.new_type in AREA_DIVISION.keys():
+        new_division = AREA_DIVISION[parser.new_type]
+        
+        f = open(parser.org_type_txt_path)
+        data = f.read()
+        f.close()
 
-    lines = data.split('\n')
-    new_lines = []
-    for line in lines:
-        f_path, class_type = line.split('\t')
-        new_class_type = new_division[class_type]
-        new_lines.append(f_path+'\t'+new_class_type)
-    f = open(parser.org_type_txt_path,'w')
-    f.write('\n'.join(new_lines))
-    f.close()
+        lines = data.split('\n')
+        new_lines = []
+        for line in lines:
+            f_path, class_type = line.split('\t')
+            new_class_type = new_division[class_type]
+            new_lines.append(f_path+'\t'+new_class_type)
+        f = open(parser.org_type_txt_path,'w')
+        f.write('\n'.join(new_lines))
+        f.close()
         
 if "__main__"==__name__:
     main()
