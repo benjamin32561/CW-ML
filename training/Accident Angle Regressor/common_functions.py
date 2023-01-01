@@ -19,7 +19,7 @@ class AccidentAngleAcceleratorDataset(Dataset):
 
     def __getitem__(self, idx, as_df=False):
         path, record_class = self.files[idx].split('\t')
-        angle_to_ret = np.array([float(record_class)])
+        angle_to_ret = np.array([float(record_class)/360])
         df = GetDataFrame(path)
         if as_df:
             return df,angle_to_ret
