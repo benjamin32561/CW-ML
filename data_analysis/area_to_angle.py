@@ -26,7 +26,7 @@ def main(args=None):
     for line in lines:
         f_path, class_type = line.split('\t')
         angle = AREA_TO_ANGLE[class_type]
-        new_lines.append(f_path+'\t'+angle)
+        new_lines.append(f_path+'\t'+str(angle))
     f = open(parser.org_type_txt_path,'w')
     f.write('\n'.join(new_lines))
     f.close()
