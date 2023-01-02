@@ -2,3 +2,4 @@
 /content/not_accidents/pothole 1
 /content/not_accidents/wipers 2
 /content/not_accidents/music 3
+/content/not_accidents/other 4
