@@ -1,0 +1,4 @@
+/content/not_accidents/bumper 0
+/content/not_accidents/pothole 1
+/content/not_accidents/wipers 2
+/content/not_accidents/music 3
