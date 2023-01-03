@@ -29,7 +29,7 @@ class ClassifierAcceleratorDataset(Dataset):
                     df = df.to_numpy()[:,:-1]
                 to_ret.append((df,class_to_ret))
             return to_ret
-        df, class_to_ret = self.GetDFAndClass(file_path)
+        df, class_to_ret = self.GetDFAndClass(files)
         if as_df:
             return df,class_to_ret
         return df.to_numpy()[:,:-1],class_to_ret
