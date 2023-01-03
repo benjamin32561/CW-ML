@@ -5,7 +5,7 @@ import numpy as np
 from torch.utils.data import Dataset
 from data_analysis.functions import GetDataFrame, PlotRecordData, CreatePath
 
-class ClassifierAcceleratorDataset(Dataset):
+class BinaryClassificationDataset(Dataset):
     def __init__(self, file_list):
         self.files = open(file_list,'r').read().split('\n')
         self.n_files = len(self.files)

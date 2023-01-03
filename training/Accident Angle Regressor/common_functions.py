@@ -7,7 +7,7 @@ from torch.utils.data import Dataset
 from torch.nn.functional import one_hot
 from data_analysis.functions import GetDataFrame, PlotRecordData, CreatePath
 
-class AccidentAngleAcceleratorDataset(Dataset):
+class RegressionDataset(Dataset):
     def __init__(self, file_list):
         f = open(file_list)
         self.files = f.read().split('\n')
