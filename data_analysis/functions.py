@@ -31,6 +31,12 @@ RECORD_TIME = 3.38
 FREQUENCY = 200
 MAIN_PULSE_START_END = 0.02
 
+def DeleteDuplicates(src_path:str,dst_path:str):
+    all_xlsx = glob(join(src_path,'*.xlsx'))
+    for cur_xlsx in all_xlsx:
+        print(cur_xlsx)
+        break
+
 def CreatePath(path=str):
     if not exists(path):
         makedirs(path)
