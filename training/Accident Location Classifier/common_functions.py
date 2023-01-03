@@ -18,11 +18,21 @@ class AccidentLocationClassifierAcceleratorDataset(Dataset):
     def __len__(self):
         return self.n_files
 
-    def __getitem__(self, idx, as_df=False):
-        path, record_class = self.files[idx].split('\t')
+    def GetDFAndClass(self, file_path:str, as_df=False):
+        path, record_class = file_path.split('\t')
         class_to_ret = np.array([int(record_class)])
         one_hot_enc_to_ret = one_hot(tensor(class_to_ret),num_classes=self.nc).to(float32)[0]
         df = GetDataFrame(path)
-        if as_df:
-            return df,one_hot_enc_to_ret
-        return df.to_numpy()[:,:-1],one_hot_enc_to_ret
+        if not as_df:
+            df = df.to_numpy()[:,:-1]
+        return df,one_hot_enc_to_ret
+
+    def __getitem__(self, idx, as_df=False):
+        files = self.files[idx]
+        if type(files)==list:
+            to_ret = []
+            for f_path in self.files[idx]:
+                df,one_hot_enc_to_ret = self.GetDFAndClass(f_path,as_df)
+                to_ret.append((df,one_hot_enc_to_ret))
+            return to_ret
+        return GetDFAndClass(files,as_df)
