@@ -4,7 +4,7 @@ from os import rename
 from os.path import join, basename, exists
 from functions import GetDataFrame, CalcFrequency, CreatePath
 
-#python load_angles.py --angles_txt_path "" --time_to_angle_txt_path ""
+#python update_angles.py --angles_txt_path "" --time_to_angle_txt_path ""
 
 def main(args=None):
     parser = argparse.ArgumentParser(description='Simple script for changing recording accident angle.')
