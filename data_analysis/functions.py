@@ -45,7 +45,7 @@ def CreatePath(path=str):
 def GetAllXlsxInFolders(folders,folders_class):
     all_xlsx_with_class = []
     for idx, folder in enumerate(folders):
-        xlsx_in_folder = glob(join(folder,'*.xlsx'))
+        xlsx_in_folder = glob(join(folder,'**/*.xlsx'),recursive=True)
         lines = [xlsx_loc+'\t'+folders_class[idx] for xlsx_loc in xlsx_in_folder]
         all_xlsx_with_class.extend(lines)
     return all_xlsx_with_class
