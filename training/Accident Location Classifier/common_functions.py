@@ -35,4 +35,4 @@ class AccidentLocationClassifierAcceleratorDataset(Dataset):
                 df,one_hot_enc_to_ret = self.GetDFAndClass(f_path,as_df)
                 to_ret.append((df,one_hot_enc_to_ret))
             return to_ret
-        return GetDFAndClass(files,as_df)
+        return self.GetDFAndClass(files,as_df)
