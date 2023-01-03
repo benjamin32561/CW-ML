@@ -1,4 +1,4 @@
-ALL_TXT_PATH = "/content/record_class.txt"
+ALL_TXT_PATH = "/content/record_angles.txt"
 TRAIN_TXT_PATH = "/content/train_record_angles.txt"
 TEST_TXT_PATH = "/content/test_record_angles.txt"
 
