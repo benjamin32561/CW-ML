@@ -94,16 +94,18 @@ def GetMaxPulseRange(x:np.ndarray,max_idx:int):
 def PlotRecordData(df:pd.DataFrame,plot_max=True,plot_pulse=True,print_info=True,save_to='',show_plot=True):
     cols = df.columns
 
+    fig, (x_plot, y_plot, z_plot, avg_plot) = plt.subplots(4, sharex=True)
+
     #plot graphs
     x = df[cols[0]].to_numpy()
     y = df[cols[1]].to_numpy()
     z = df[cols[2]].to_numpy()
     time = df[cols[3]].to_numpy()
     avg = np.mean(np.abs(np.array([x,y,z])),axis=0)
-    plt.plot(time,x, label=cols[0],color=X_COLOR,linestyle=FORCE_LINESTYLE)
-    plt.plot(time,y, label=cols[1],color=Y_COLOR,linestyle=FORCE_LINESTYLE)
-    plt.plot(time,z, label=cols[2],color=Z_COLOR,linestyle=FORCE_LINESTYLE)
-    plt.plot(time,avg, label=AVG_LABEL,color=AVG_COLOR,linestyle=FORCE_LINESTYLE)
+    x_plot.plot(time,x, label=cols[0],color=X_COLOR,linestyle=FORCE_LINESTYLE)
+    y_plot.plot(time,y, label=cols[1],color=Y_COLOR,linestyle=FORCE_LINESTYLE)
+    z_plot.plot(time,z, label=cols[2],color=Z_COLOR,linestyle=FORCE_LINESTYLE)
+    avg_plot.plot(time,avg, label=AVG_LABEL,color=AVG_COLOR,linestyle=FORCE_LINESTYLE)
     plt.xlabel(X_AXIS_LABEL)
     plt.ylabel(Y_AXIS_LABEL)
 
@@ -121,8 +123,8 @@ def PlotRecordData(df:pd.DataFrame,plot_max=True,plot_pulse=True,print_info=True
     #plot pulse width
     if plot_pulse:
         avg_pulse_start, avg_pulse_end = GetMaxPulseRange(avg,avg_max_idx)
-        plt.axvline(time[avg_pulse_start],color=PULSE_WIDTH_COLOR,label=MAX_PULSE_LABEL,linestyle=MAX_PULSE_LINESTYLE)
-        plt.axvline(time[avg_pulse_end],color=PULSE_WIDTH_COLOR,label=MAX_PULSE_LABEL,linestyle=MAX_PULSE_LINESTYLE)
+        avg_plot.axvline(time[avg_pulse_start],color=PULSE_WIDTH_COLOR,label=MAX_PULSE_LABEL,linestyle=MAX_PULSE_LINESTYLE)
+        avg_plot.axvline(time[avg_pulse_end],color=PULSE_WIDTH_COLOR,label=MAX_PULSE_LABEL,linestyle=MAX_PULSE_LINESTYLE)
 
     if print_info:
         #avg pulse integral
@@ -130,7 +132,10 @@ def PlotRecordData(df:pd.DataFrame,plot_max=True,plot_pulse=True,print_info=True
         #angle of accident
         print("Angle of accident (tan(x/y)): ", np.tan(y[avg_max_idx]/x[avg_max_idx]))
 
-    plt.legend(loc='best')
+    x_plot.legend(loc='best')
+    y_plot.legend(loc='best')
+    z_plot.legend(loc='best')
+    avg_plot.legend(loc='best')
     if save_to!='':
         plt.savefig(save_to)
     if show_plot:

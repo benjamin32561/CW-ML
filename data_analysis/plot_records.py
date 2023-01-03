@@ -21,7 +21,7 @@ def main(args=None):
     for idx, file_path in enumerate(files):
         print("{}/{}: {}".format(idx+1,n_files,file_path))
         data = GetDataFrame(file_path)
-        PlotRecordData(data,False,False,False)
+        PlotRecordData(data,False,True,False)
         
 if "__main__"==__name__:
     main()
