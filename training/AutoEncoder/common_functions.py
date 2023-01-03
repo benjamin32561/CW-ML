@@ -6,9 +6,8 @@ from glob import glob
 from data_analysis.functions import GetDataFrame, PlotRecordData, CreatePath
 
 class AEAcceleratorDataset(Dataset):
-    def __init__(self, dataset_folder_file):
-        dataset_path = open(file_list,'r').read()
-        self.file_list = glob(join(dataset_path,"**\*.xlsx"),recursive=True)
+    def __init__(self, file_list):
+        self.file_list = file_list
         self.n_files = len(self.file_list)
 
     def __len__(self):

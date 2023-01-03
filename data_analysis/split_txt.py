@@ -2,7 +2,7 @@ import argparse
 from os.path import basename,dirname, join, exists
 from functions import SaveLinesToTxt
 
-TRAIN_TEST_SPLIT = {'train_':0.8,'test_':0.2}
+TRAIN_TEST_SPLIT = {'train':0.8,'test':0.2}
 
 #python split_txt.py --txt_file_location C:\Users\ben32\Desktop\work\training\csv_locations.txt
 
@@ -22,7 +22,7 @@ def main(args=None):
     n_lines = len(lines)
     last_idx = 0
     for phase in TRAIN_TEST_SPLIT.keys():
-        new_file = join(directory,phase+filename)
+        new_file = join(directory,phase+'_'+filename)
         n_phase_lines = int(n_lines*TRAIN_TEST_SPLIT[phase])
         phase_lines = lines[last_idx:last_idx+n_phase_lines]
         SaveLinesToTxt(phase_lines,new_file)
