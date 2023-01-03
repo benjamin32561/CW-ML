@@ -8,19 +8,10 @@ from torch.nn.functional import one_hot
 from data_analysis.functions import GetDataFrame, PlotRecordData, CreatePath
 
 class RegressionDataset(Dataset):
-    def __init__(self, file_list,angle_by_time):
+    def __init__(self, file_list):
         f = open(file_list)
         self.files = f.read().split('\n')
         f.close()
-
-        f = open(angle_by_time)
-        lines = f.read().split('\n')
-        f.close()
-        self.angle_by_time = {}
-        for line in lines:
-            units,time,angle = line.split(' ')
-            units = units.split(',')
-            self.angle_by_time[time]={"angle":angle,"units":units}
 
         self.n_files = len(self.files)
 
@@ -29,11 +20,6 @@ class RegressionDataset(Dataset):
 
     def GetDFAndClass(self, file_path:str, as_df=False):
         path, record_angle = file_path.split('\t')
-        for key in self.angle_by_time.keys():
-            if key in path:
-                for unit in self.angle_by_time[key]['units']:
-                    if unit in path:
-                        record_angle = self.angle_by_time[key]['angle']
         angle_to_ret = np.array([float(record_angle)/360])
         df = GetDataFrame(path)
         if not as_df:
