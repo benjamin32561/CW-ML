@@ -35,11 +35,11 @@ def main(args=None):
     for i in range(n_recordings):
         recording = recordings_and_angles[i]
         path, recording_angle = recording.split('\t')
-        for key in self.angle_by_time.keys():
+        for key in angle_by_time.keys():
             if key in path:
-                for unit in self.angle_by_time[key]['units']:
+                for unit in angle_by_time[key]['units']:
                     if unit in path:
-                        recording_angle = self.angle_by_time[key]['angle']
+                        recording_angle = angle_by_time[key]['angle']
         recordings_and_angles[i] = '\t'.join([path, recording_angle])
 
 
