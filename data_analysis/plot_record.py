@@ -2,6 +2,8 @@ import argparse
 from os.path import exists
 from functions import GetDataFrame, PlotRecordData
 
+#python plot_record.py --record_path ""
+
 def main(args=None):
     parser = argparse.ArgumentParser(description='Script for plotting a single record.')
 
