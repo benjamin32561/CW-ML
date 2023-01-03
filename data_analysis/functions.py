@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from glob import glob
-from os import makedirs
+from os import makedirs, remove
 from os.path import join, exists
 
 XLSX_RELEVENT_COLUMNS = ["X axis (G)","Y axis (G)","Z axis (G)","Time (sec)"]
@@ -32,10 +32,11 @@ FREQUENCY = 200
 MAIN_PULSE_START_END = 0.02
 
 def DeleteDuplicates(src_path:str,dst_path:str):
-    all_xlsx = glob(join(src_path,'*.xlsx'))
-    for cur_xlsx in all_xlsx:
-        print(cur_xlsx)
-        break
+    src_folder_files = [f_path.split('\\')[-1] for f_path in glob(join(src_path,'*.xlsx'))]
+    dst_folder_files = [f_path.split('\\')[-1] for f_path in glob(join(dst_path,'*.xlsx'))]
+    for filename in src_folder_files:
+        if filename in dst_folder_files:
+            remove(join(dst_path,filename))
 
 def CreatePath(path=str):
     if not exists(path):

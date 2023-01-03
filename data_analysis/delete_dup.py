@@ -21,8 +21,10 @@ def main(args=None):
     check_from_folders = folder_class_dict[:-2]
     check_in_folder = folder_class_dict[-1]
     
-    for folder in check_from_folders:
-        DeleteDuplicates(folder, check_in_folder)
+    n_folders = len(check_from_folders)
+    for idx in range(n_folders):
+        print(f"\r{idx+1}/{n_folders} folders",end='')
+        DeleteDuplicates(check_from_folders[idx], check_in_folder)
 
 if __name__=='__main__':
     main()
