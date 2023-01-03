@@ -1,2 +1,1 @@
-/content/accident_or_not_dataset/accidents 0
-/content/accident_or_not_dataset/not_accidents 0
+/content/dataset/

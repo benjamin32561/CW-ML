@@ -1,5 +1,5 @@
-/content/not_accidents/bumper 0
-/content/not_accidents/pothole 1
-/content/not_accidents/wipers 2
-/content/not_accidents/music 3
-/content/not_accidents/other 4
+/content/dataset/not_accidents/bumpers 0
+/content/dataset/not_accidents/potholes 1
+/content/dataset/not_accidents/wipers 2
+/content/dataset/not_accidents/music 3
+/content/dataset/not_accidents/other 4
